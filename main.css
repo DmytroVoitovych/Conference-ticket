@@ -1,0 +1,658 @@
+@import url("./assets/styleUtils/index.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: block;
+  width: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--neutral-0);
+  -webkit-box-shadow: 0 0 0px 1000px var(--form-input-df-bg)
+    inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+
+  @media screen and (max-width: 1439.9px) {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  @media screen and (max-width: 767.9px) {
+    max-width: 375px;
+    padding: 0 16px;
+  }
+}
+
+.wrapper {
+  min-height: inherit;
+  padding-top: 40px;
+  padding-bottom: 130px;
+  align-self: stretch;
+  background-image: url(./assets/images/pattern-lines.svg),
+    url(./assets/images/pattern-squiggly-line-bottom.svg),
+    url(./assets/images/pattern-circle.svg),
+    url(./assets/images/pattern-squiggly-line-top.svg),
+    url(./assets/images/pattern-circle.svg),
+    url(./assets/images/background-desktop.png);
+  background-size: cover, auto, auto, auto, auto, cover;
+  background-position: center, left bottom,
+    left 938px top 58%, right top 76px, left 44px top -85px,
+    center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(1px);
+  overflow-y: hidden;
+
+  @media screen and (max-width: 1439.9px) {
+    background-position: center, left bottom,
+      left 669px top 58%, right top 76px,
+      left 44px top -85px, center;
+  }
+
+  @media screen and (max-width: 767.9px) {
+    background-position: center, left bottom,
+      left 313px top 58%, right top 24px,
+      left -20px top -30px, center;
+    background-size: cover, 301px 209px, 107px 107px,
+      112px 52px, 107px 107px, cover;
+  }
+}
+
+nav {
+  text-align: center;
+  margin-bottom: 76px;
+
+  & > .logoTitle {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 16px;
+
+    font-family: var(--fira-bold);
+    font-size: 24px;
+    color: var(--neutral-0);
+
+    @media screen and (max-width: 767.9px) {
+      gap: 13px;
+      font-size: 19px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-image: url(./assets/images/logo-full.svg);
+      background-repeat: no-repeat;
+
+      @media screen and (max-width: 767.9px) {
+        align-self: center;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &:has(~ .ticket:not(.visually-hidden)) {
+    margin-bottom: 69px;
+
+    @media screen and (max-width: 767.9px) {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.ticket {
+  overflow: hidden;
+
+  & data {
+    position: relative;
+    background-image: inherit;
+    background-clip: inherit;
+  }
+
+  & .ticketBlock data:hover::before {
+    content: attr(value);
+    position: absolute;
+    backdrop-filter: blur(40px);
+  }
+}
+
+.ticketBlock {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 20px;
+  background-image: var(--ticket-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 12px;
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (max-width: 767.9px) {
+    padding: 20px 16px;
+  }
+
+  @media screen and (max-width: 374.9px) {
+    flex-direction: row-reverse;
+    max-width: 280px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    padding-right: 1.5px; /* the border thickness */
+    border-radius: 12px;
+    background-image: var(--gradient-2);
+    mask: linear-gradient(#000 0 0) exclude,
+      linear-gradient(#000 0 0) content-box;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(40px);
+    z-index: -1;
+    clip-path: var(--clip-blur);
+
+    @media screen and (max-width: 767.9px) {
+      clip-path: var(--clip-blur-mob);
+    }
+  }
+
+  .ticketBlock-left .ticketInformation-block {
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: 0fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 12px;
+    place-items: end;
+    margin-bottom: 74px;
+
+    & .ticketMeet-info {
+      grid-column: 2;
+      place-self: start;
+      font-family: var(--regular);
+      font-size: 18px;
+      line-height: 120%;
+      color: var(--neutral-300);
+
+      @media screen and (max-width: 767.9px) {
+        font-size: 14px;
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-image: url(./assets/images/logo-full.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @media screen and (max-width: 767.9px) {
+        align-self: center;
+        width: 29px;
+        height: 29px;
+      }
+    }
+
+    @media screen and (max-width: 767.9px) {
+      grid-column-gap: 12px;
+      grid-row-gap: 8px;
+      margin-bottom: 32px;
+    }
+  }
+
+  .ticketLogo {
+    place-self: start;
+    font-family: var(--bold);
+    font-size: 40px;
+    line-height: 110%;
+    letter-spacing: -1px;
+    color: var(--neutral-0);
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 24px;
+    }
+  }
+
+  .userTicket-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media screen and (max-width: 767.9px) {
+      gap: 12px;
+    }
+
+    & > img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+
+      @media screen and (max-width: 767.9px) {
+        max-width: 45px;
+        max-height: 45px;
+        border-radius: 7px;
+      }
+    }
+
+    & .userTicket-name {
+      display: grid;
+      gap: 4px;
+      font-family: var(--medium);
+      font-size: 30px;
+      letter-spacing: -1px;
+      line-height: 110%;
+      color: var(--neutral-0);
+      text-transform: capitalize;
+      white-space: nowrap;
+
+      @media screen and (max-width: 767.9px) {
+        font-size: 20px;
+      }
+    }
+
+    & .userTicket-social {
+      display: flex;
+      gap: 10px;
+      font-family: var(--medium);
+      font-size: 20px;
+      line-height: 120%;
+      letter-spacing: -0.5px;
+      color: var(--neutral-300);
+
+      @media screen and (max-width: 767.9px) {
+        font-size: 14px;
+        gap: 4px;
+      }
+
+      &::before {
+        content: "";
+        display: flex;
+        width: 21px;
+        height: 22px;
+        background-image: url(./assets/images/icon-github.svg);
+
+        @media screen and (max-width: 767.9px) {
+          align-self: center;
+          background-size: cover;
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+  }
+
+  .ticketId {
+    font-family: var(--medium);
+    font-size: 30px;
+    line-height: 110%;
+    letter-spacing: -1px;
+    writing-mode: vertical-rl;
+    text-align: center;
+    padding-right: 16px;
+    padding-left: 43px;
+    color: var(--neutral-500);
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 22px;
+      padding: 0;
+    }
+  }
+}
+
+.codingConf form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+  &
+    :not(:has(.dropZone-btnlist))
+    :is(.formInput, .formDropzone):hover {
+    cursor: pointer;
+    background-color: var(--hover-input-upload-bg);
+    transition: background 250ms;
+  }
+
+  &
+    :not(:has(.dropZone-btnlist))
+    :is(.formInput, .formDropzone):focus {
+    outline: 3px solid var(--neutral-300);
+    outline-offset: 3px;
+  }
+}
+
+.formDescription-block {
+  margin-bottom: 45px;
+  max-width: 891px;
+}
+
+.ticketDescription-block {
+  max-width: 814px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 111px;
+  text-align: center;
+
+  & .h-accent {
+    background-image: var(--gradient-1);
+    background-clip: text;
+    color: transparent;
+    text-transform: capitalize;
+  }
+
+  @media screen and (max-width: 767.9px) {
+    margin-bottom: 72px;
+  }
+}
+
+.formDescription-h,
+.ticket-h {
+  font-family: var(--extra-bold);
+  font-size: 60px;
+  line-height: 110%;
+  letter-spacing: -1px;
+  color: var(--neutral-0);
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.ticket-h {
+    margin-bottom: 32px;
+
+    @media screen and (max-width: 767.9px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (max-width: 767.9px) {
+    font-size: 30px;
+  }
+}
+
+.formMotivation-p,
+.ticketDescription {
+  font-family: var(--medium);
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: -0.5px;
+  color: var(--neutral-300);
+
+  &.ticketDescription {
+    max-width: 514px;
+    margin-left: auto;
+    margin-right: auto;
+
+    & > .descriptionAccent {
+      color: var(--orange-500);
+    }
+  }
+
+  @media screen and (max-width: 767.9px) {
+    font-size: 20px;
+  }
+}
+
+.formInput-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  max-width: 460px;
+  width: 100%;
+  backdrop-filter: blur(1px);
+
+  @media screen and (max-width: 1439.9px) {
+    max-width: 522px;
+  }
+}
+
+.formInput-block label {
+  font-family: var(--medium);
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.5px;
+  text-align: start;
+  color: var(--neutral-0);
+  align-self: flex-start;
+}
+
+.formInput-block input {
+  width: inherit;
+
+  &.formInput {
+    font-family: var(--regular);
+    font-size: 18px;
+    line-height: 120%;
+    color: var(--neutral-0);
+    outline: 1px solid var(--neutral-500);
+    background-color: var(--form-input-df-bg);
+    padding: 20px 16px;
+    border-radius: 12px;
+
+    &::placeholder {
+      color: var(--neutral-300);
+    }
+  }
+
+  & + .errorInfo::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    mask-image: url("./assets/images/icon-info.svg");
+    background-color: currentColor;
+  }
+
+  & + .errorInfo {
+    color: var(--orange-500);
+    display: flex;
+    align-items: center;
+    align-self: self-start;
+  }
+
+  &:has(+ .errorInfo) {
+    outline: 1px solid var(--orange-500);
+  }
+}
+
+.formDropzone {
+  height: 126px;
+  align-self: stretch;
+  padding: 12px 16px;
+  border: 1px dashed var(--neutral-500);
+  background-color: var(--form-input-df-bg);
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+
+  & > p {
+    font-family: var(--regular);
+    font-size: 18px;
+    line-height: 120%;
+    color: var(--neutral-300);
+  }
+
+  &:has(.dropZone-btnlist) {
+    pointer-events: none;
+  }
+
+  & > .dropZone-btnlist {
+    display: flex;
+    gap: 8px;
+    pointer-events: auto;
+
+    & button {
+      font-family: var(--regular);
+      font-size: 12px;
+      line-height: 120%;
+      letter-spacing: -0.2px;
+      color: var(--neutral-0);
+      background-color: var(--form-btn-dropZone-bg);
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    & button:is(:hover, :focus-visible) {
+      color: var(--neutral-300);
+      text-decoration: underline;
+      transition: all 250ms;
+    }
+  }
+}
+
+.formInput-block > .formDropzone + span {
+  display: flex;
+  font-family: var(--regular);
+  font-size: 12px;
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  align-self: flex-start;
+  color: var(--neutral-300);
+
+  &::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    mask-image: url("./assets/images/icon-info.svg");
+    background-color: currentColor;
+  }
+
+  &.errorInfo {
+    color: var(--orange-500);
+  }
+}
+
+#avatar {
+  position: relative;
+  width: 30px;
+  height: 30px;
+
+  &::file-selector-button {
+    color: transparent;
+    background-color: transparent;
+    border: none;
+  }
+}
+#avatar::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  inset: 0;
+  background-image: url("./assets/images/icon-upload.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+#github:user-invalid {
+  outline: 1px solid var(--orange-500);
+}
+
+.fileDecor {
+  padding: 10px;
+  border: 1px solid var(--neutral-700);
+  border-radius: 16px;
+  background-color: var(--form-input-upload-bg);
+  pointer-events: none;
+}
+
+.formBtn-generate {
+  font-family: var(--extra-bold);
+  font-size: 20px;
+  line-height: 100%;
+  color: var(--neutral-900);
+  background-color: var(--orange-500);
+  padding: 16px 24px;
+  border-radius: 12px;
+
+  max-width: 460px;
+  width: 100%;
+  align-self: center;
+
+  @media screen and (max-width: 1439.9px) {
+    max-width: 522px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--orange-700);
+    transition: background-color 250ms;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 0px 3px var(--neutral-900);
+    background-color: var(--orange-700);
+  }
+}
+
+/* special classes */
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}

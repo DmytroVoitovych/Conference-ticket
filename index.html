@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Conference ticket generator</title>
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="mainNav">
+        <a href="/" class="logoTitle">Coding Conf</a>
+      </nav>
+      <section class="codingConf container">
+        <!-- Form starts -->
+        <form>
+          <div class="formDescription-block">
+            <h1 class="formDescription-h">
+              Your Journey to Coding Conf 2025 Starts Here!
+            </h1>
+            <p class="formMotivation-p">
+              Secure your spot at next year's biggest coding
+              conference.
+            </p>
+          </div>
+          <div class="formInput-block">
+            <label for="avatar">Upload Avatar </label>
+            <div
+              class="formDropzone"
+              id="dropTarget"
+              tabindex="0"
+            >
+              <div class="fileDecor">
+                <input
+                  type="file"
+                  id="avatar"
+                  name="avatar"
+                  accept="image/png, image/jpeg"
+                  required
+                />
+              </div>
+              <p>Drag and drop or click to upload</p>
+            </div>
+            <span
+              >Upload your photo (JPG or PNG, max size:
+              500KB).</span
+            >
+          </div>
+          <div class="formInput-block">
+            <label for="fullName">Full Name </label
+            ><input
+              class="formInput"
+              id="fullName"
+              name="fullName"
+              placeholder=""
+              type="text"
+              minlength="1"
+            />
+          </div>
+          <div class="formInput-block">
+            <label for="email">Email Address </label
+            ><input
+              class="formInput"
+              placeholder="example@email.com"
+              type="email"
+              id="email"
+              name="email"
+              pattern="^\S+@\S+\.\S+$"
+              required
+            />
+          </div>
+          <div class="formInput-block">
+            <label for="github">GitHub Username </label
+            ><input
+              name="github"
+              id="github"
+              class="formInput"
+              placeholder="@yourusername"
+              pattern="^@[a-z\d][\w\-]*$"
+              type="text"
+              required
+              onchange="this.reportValidity()"
+            />
+          </div>
+          <input
+            class="formBtn-generate"
+            type="submit"
+            value="Generate My Ticket"
+          />
+        </form>
+      </section>
+      <section
+        class="ticket container visually-hidden"
+        id="app"
+      >
+        <div class="ticketDescription-block">
+          <h1 class="ticket-h">
+            Congrats,
+            <span class="h-accent accent-namejs"
+              >Jonatan Kristof!</span
+            >
+            Your ticket is ready.
+          </h1>
+          <p class="ticketDescription">
+            We've emailed your ticket to
+            <span class="descriptionAccent accent-emailjs"
+              >jonatan@email.com</span
+            >
+            and will send updates in the run up to the
+            event.
+          </p>
+        </div>
+        <div class="ticketBlock">
+          <div class="ticketBlock-left">
+            <div class="ticketInformation-block">
+              <span class="ticketLogo logoTitle"
+                >Coding Conf</span
+              >
+              <p class="ticketMeet-info">
+                <time datetime="2025-01-31"
+                  >Jan 31, 2025 </time
+                >/ Austin, TX
+              </p>
+            </div>
+            <figure class="userTicket-info">
+              <img
+                src="./assets/images/image-avatar.jpg"
+                alt="Jonatan Kristof"
+                class="userTicket-img avatarjs"
+              />
+              <figurecaption>
+                <p class="userTicket-name ticket-namejs">
+                  Jonatan Kristof
+                </p>
+                <a
+                  href="https://github.com/"
+                  class="userTicket-social ticket-socialjs"
+                  target="_blank"
+                  >@jonatankristof0101</a
+                >
+              </figurecaption>
+            </figure>
+          </div>
+          <div class="ticketId">#01609</div>
+        </div>
+      </section>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"
+      integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

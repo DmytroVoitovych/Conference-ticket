@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap");
+
+@font-face {
+  font-family: "Inconsolata-Regular";
+  src: local("Inconsolata-Regular"),
+    url("../fonts/static/Inconsolata-Regular.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Inconsolata-Bold";
+  src: local("Inconsolata-Bold"),
+    url("../fonts/static/Inconsolata-Bold.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Inconsolata-ExtraBold";
+  src: local("Inconsolata-ExtraBold"),
+    url("../fonts/static/Inconsolata-ExtraBold.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Inconsolata-Medium";
+  src: local("Inconsolata-Medium"),
+    url("../fonts/static/Inconsolata-Medium.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Inconsolata-VariableFont";
+  src: local("Inconsolata-VariableFont"),
+    url("../fonts/Inconsolata-VariableFont_wdth\,wght.ttf")
+      format("truetype");
+}

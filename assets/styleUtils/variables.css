@@ -1,0 +1,59 @@
+:root {
+  /*colors*/
+  --neutral-0: #ffffff;
+  --neutral-300: #d1d0d5;
+  --neutral-500: #8784a5;
+  --neutral-700: #4b4869;
+  --neutral-900: #0d082d;
+
+  --orange-500: #f57463;
+  --orange-700: #e1604f;
+  --gradient-1: linear-gradient(
+    90deg,
+    #f37362 0%,
+    #fff 100%
+  );
+  --gradient-2: linear-gradient(
+    90deg,
+    #fff 0%,
+    #f37362 100%
+  );
+
+  /* Typography */
+  --extra-bold: "Inconsolata-ExtraBold";
+  --bold: "Inconsolata-Bold";
+  --medium: "Inconsolata-Medium";
+  --regular: "Inconsolata-Regular";
+  --variable: "Inconsolata-VariableFont";
+  --fira-bold: "Fira Code";
+
+  /* special */
+  --form-input-df-bg: color-mix(
+    in srgb,
+    var(--neutral-0) 8%,
+    transparent 92%
+  );
+  --form-input-upload-bg: color-mix(
+    in srgb,
+    var(--neutral-0) 10%,
+    transparent 90%
+  );
+  --hover-input-upload-bg: color-mix(
+    in srgb,
+    var(--neutral-0) 20%,
+    transparent 80%
+  );
+  --form-btn-dropZone-bg: color-mix(
+    in srgb,
+    var(--neutral-0) 10%,
+    transparent 90%
+  );
+
+  --ticket-bg: url(./assets/images/pattern-ticket.svg);
+  --clip-blur: path(
+    "M0 10C0 5 20 0 36 0h424c5 0 10 4 14 8 3 6 11 12 24 12s20-6 24-12c4-4 9-8 7-8h60c16 0 28 6 28 12v270c0 6-12 12-28 12h-60c-5 0-10-4-14-8-3-6-11-12-24-12s-20 6-24 12c-4 4-9 8-14 8h-424c-16 0-28-6-28-12V10Z"
+  );
+  --clip-blur-mob: path(
+    "M0 11C0 5 20 0 36 0h224c5 0 10 4 14 0 0 0 12 12 24 12s20-6 24-12c4-4 9-8 7-8h60c16 0 28 6 28 12v270c0 6-12 12-28 12h-60c-5 0-10-4-14-8-3-6-11-12-24-12s-20 6-24 12c-4 4-9 8-14 8h-424c-16 1-28-6-28-12V10Z"
+  );
+}
