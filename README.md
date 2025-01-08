@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github page](https://github.com/DmytroVoitovych/Conference-ticket)
+- Live Site URL: [Live page](https://dmytrovoitovych.github.io/Conference-ticket/)
 
 ## My process
 
